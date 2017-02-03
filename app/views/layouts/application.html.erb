@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ToDoLists | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<div class="container grad">
+	<head>
+  		<title>ToDoLists | <%= yield(:title) %></title>
+  		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  		<%= csrf_meta_tags %>
+  		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
 
-<%= yield %>
 
-</body>
+	<body>
+
+		<%= render 'layouts/header' %>
+		
+
+		<div class="container banner">
+			<%= yield %>
+			<footer class="footer"><a href="https://rubygarage.org/"><strong>©Ruby Garage</strong></footer>
+        </div>
+	</body>
+	</div>
 </html>
