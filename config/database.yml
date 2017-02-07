@@ -4,25 +4,30 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-
- 
-
 development: 
   adapter: postgresql
-  database: todo_development
-  password: ~
+  database: toDoList_development
+  encoding: unicode
   pool: 5
   timeout: 5000
-  username: inna
-production: 
+  host: localhost
+  username: nuna
+  password: ravimu20
+test: 
   adapter: postgresql
-  database: todo_production
-  password: ~
+  database: toDoList_test
+  encoding: unicode
   pool: 5
   timeout: 5000
-  username: psql -U inna
+  host: localhost
+  username: nuna
+  password: ravimu20
+production:
   adapter: postgresql
-  database: todo_test
-  password: ~
+  database: toDoList_production
+  encoding: unicode
   pool: 5
   timeout: 5000
+  host: localhost
+  username: nuna
+  password: ravimu20
