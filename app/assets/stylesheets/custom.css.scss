@@ -1,9 +1,14 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 html {
   overflow-y: scroll;
 }
+
+
+a{
+
+}
+
 
 body {
 padding-top: 16%;
@@ -19,7 +24,6 @@ background-position: center center;
 background-repeat: no-repeat; 
 background-attachment: fixed;  
 background-size: cover;
-background-color: #464646;
 }
 
 section {
@@ -38,15 +42,17 @@ textarea {
   margin-bottom: 10px;
 }
 
-ul li{
-    display: inline-block;
-}
+.btn-primary{
+    color: #FFF!important;
+   font-size: 1.3em;
+    }
+
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: #FFF;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -55,15 +61,13 @@ ul li{
 }
 
 #logo:hover {
-  color: #44944A;
+  color: #FFF;
   text-decoration: none;
+  background-color: #428bca;
 }
 
-a{
-	  color: #FF1851;
-}
 
-///////////
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -91,9 +95,20 @@ p {
 
 .navbar-default {
     background-color: #428bca;
-    border-color: #fff;
-
+    border-color: #428bca;
+    color: #fff;
+    font-weight: bold;
 }
+
+
+.navbar-default .navbar-nav > li > a {
+    color:white!important;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    background-color:#3A75C4!important;
+}
+
 /*
 .grad {
   background: url(http://www.publicdomainpictures.net/pictures/130000/velka/yellow-top-gradient-background.jpg) no-repeat center center fixed;
@@ -111,14 +126,15 @@ p {
   letter-spacing: -1px;
   text-align: center;
   font-weight: normal;
-  margin-top: 150px;
+  margin-top: 5%;
   padding-top: 50px;
 }
 
 footer a {
-  color: #fff;
+  color:#3A75C4!important;
 }
 
-footer.a:hover {
-  color: #428bca;
+footer a:hover {
+  color: #3A75C4; 
+  text-decoration: none;
 }
