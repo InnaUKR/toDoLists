@@ -1,2 +1,32 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<div class="center">
+	<h1>Sign up</h1>
+</div>
+
+<div class="row">
+	<div class="container registration-container">
+        <div class="form">
+			<%= form_for(@user) do |f| %>
+			      <%= render 'shared/error_messages' %>
+			      <div class="controls">
+				<%= f.label :email %>
+					<%= f.text_field :email, class: 'form-control' %><br>
+				</div>
+
+
+				<div class="controls">
+				<%= f.label :password %>
+					<%= f.password_field :password, class: 'form-control' %><br>
+				</div>
+
+
+				<div class="controls">
+				<%= f.label :password_confirmation, "Confirmation"%>
+					<%= f.password_field :password_confirmation,  class: 'form-control' %><br>	
+				</div>
+
+				<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -5,11 +5,6 @@ html {
 }
 
 
-a{
-
-}
-
-
 body {
 padding-top: 16%;
 background: rgba(179,179,179,1);
@@ -43,8 +38,8 @@ textarea {
 }
 
 .btn-primary{
-    color: #FFF!important;
    font-size: 1.3em;
+   background-color: #428bca;
     }
 
 
@@ -102,11 +97,12 @@ p {
 
 
 .navbar-default .navbar-nav > li > a {
-    color:white!important;
+    color:#fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    background-color:#3A75C4!important;
+    background-color:#3A75C4;
+    color:#fff;
 }
 
 /*
@@ -131,10 +127,69 @@ p {
 }
 
 footer a {
-  color:#3A75C4!important;
+  color:#3A75C4;
 }
 
 footer a:hover {
   color: #3A75C4; 
   text-decoration: none;
+}
+
+
+
+
+
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 2px solid #428bca;
+  width: 30%;
+  margin-bottom: 1%;
+  @include box_sizing;
+
+}
+
+
+
+
+div > form{
+   top: 10%;
+   left: 20%;
+   margin-left: 30%;
+   margin-right: 30%;
+}
+
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
 }
