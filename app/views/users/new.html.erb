@@ -1,13 +1,11 @@
 <% provide(:title, 'Sign up') %>
-<div class="center">
-	<h1>Sign up</h1>
-</div>
 
-<div class="row">
-	<div class="container registration-container">
+<div>
+	<h1>Sign up</h1>
+
         <div class="form">
 			<%= form_for(@user) do |f| %>
-			      <%= render 'shared/error_messages' %>
+				<%= render 'shared/error_messages' %>
 			      <div class="controls">
 				<%= f.label :email %>
 					<%= f.text_field :email, class: 'form-control' %><br>
@@ -21,12 +19,14 @@
 
 
 				<div class="controls">
-				<%= f.label :password_confirmation, "Confirmation"%>
+				<%= f.label :password_confirmation%>
 					<%= f.password_field :password_confirmation,  class: 'form-control' %><br>	
 				</div>
 
-				<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
+				<div class="text-center controls">
+					<%= f.submit "Create my account", class: "btn btn-large btn-primary " %>
+				</div>
 			<% end %>
 		</div>
-	</div>
 </div>

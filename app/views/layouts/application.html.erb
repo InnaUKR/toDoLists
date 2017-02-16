@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html>
-	<div class="container grad">
 	<head>
   		<title>ToDoLists | <%= yield(:title) %></title>
   		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   		<%= csrf_meta_tags %>
+  		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+  		<meta name="viewport" content="
+							    width=device-width,
+							    initial-scale=1,
+							    minimum-scale=1,
+							    maximum-scale=1,
+							    user-scalable=0
+		" />
+
+
+<script>
+var footer = $('.footer'),
+    pageContainer = $('.page-container'),
+    fixClass = 'navbar-fixed-bottom';
+
+    function stickyFooter() {
+        var windowHeight  = $(window).height(),
+            contentHeight = pageContainer.height(),
+            footerHeight  = footer.height();
+        footer.removeClass(fixClass);
+        if (contentHeight <= windowHeight-footerHeight){
+            footer.addClass(fixClass);
+        }
+    }
+
+    stickyFooter();
+    $(window).resize(function () {
+        stickyFooter();
+    });
+ </script>
+
+
   		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		<![endif]-->	
 	</head>
-
 
 	<body>
 
 		<%= render 'layouts/header' %>
-		
+		<div class="wrapper">	
+			<div class="content">
+				<div class="myContent">
 
-		<div>
-			<% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-			<%= yield %>
-        </div>
-		<footer class="footer"><a href="https://rubygarage.org/"><strong>©Ruby Garage</strong></footer>
-			<%= debug(params) if Rails.env.development? %>
+					<% flash.each do |key, value| %>
+		        		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		      		<% end %>
+
+					<%= yield %>
+				</div>
+			</div>
+
+			<div class="footer text-center">	
+				<a href="https://rubygarage.org/">©Ruby Garage</a>
+			</div>			
+		</div>
 	</body>
-	</div>
 </html>

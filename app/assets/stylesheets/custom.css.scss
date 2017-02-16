@@ -1,12 +1,40 @@
 @import "bootstrap";
 
-html {
-  overflow-y: scroll;
+body, html {
+    height: 100%;
+    width: 100%;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  min-height: calc(100vh - 100px);
 }
 
 
+.content{
+    display: flex;
+    height: 90%;
+}
+
+
+ .myContent{  
+      margin-left:auto;
+  margin-right:auto;
+width:45%;}
+
+@media (max-width:767px){
+  .myContent{ width: 90%;}
+
+}
+@media (max-width:990px){
+    .myContent{ width: 70%;}
+}
+
 body {
-padding-top: 16%;
 background: rgba(179,179,179,1);
 background: -moz-linear-gradient(top, rgba(179,179,179,1) 0%, rgba(191,191,191,1) 15%, rgba(217,217,217,1) 41%, rgba(254,220,119,1) 48%, rgba(254,220,119,1) 51%, rgba(241,206,111,1) 60%, rgba(194,136,0,1) 67%, rgba(237,188,53,1) 75%, rgba(243,164,53,1) 87%, rgba(243,164,53,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,179,179,1)), color-stop(15%, rgba(191,191,191,1)), color-stop(41%, rgba(217,217,217,1)), color-stop(48%, rgba(254,220,119,1)), color-stop(51%, rgba(254,220,119,1)), color-stop(60%, rgba(241,206,111,1)), color-stop(67%, rgba(194,136,0,1)), color-stop(75%, rgba(237,188,53,1)), color-stop(87%, rgba(243,164,53,1)), color-stop(100%, rgba(243,164,53,1)));
@@ -21,165 +49,69 @@ background-attachment: fixed;
 background-size: cover;
 }
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
-
-.btn-primary{
-   font-size: 1.3em;
-   background-color: #428bca;
-    }
-
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #FFF;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-}
-
-#logo:hover {
-  color: #FFF;
-  text-decoration: none;
-  background-color: #428bca;
-}
 
 
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+
+p{
+  width:90%;
+  max-width:1080px;
+  margin-left:auto;
+  margin-right:auto;
+  font-family:"Times New Roman";
 }
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
   text-align: center;
+  
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
+  letter-spacing: -0.0625em;
   text-align: center;
-  font-weight: normal;
-  color: #999;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-.navbar-default {
-    background-color: #428bca;
-    border-color: #428bca;
-    color: #fff;
-    font-weight: bold;
+  color: #999!important;
 }
 
 
-.navbar-default .navbar-nav > li > a {
-    color:#fff;
-}
 
-.navbar-default .navbar-nav > li > a:hover {
-    background-color:#3A75C4;
-    color:#fff;
-}
+/*ul {font-size:1.5em; }
+*/
+
+
+
+
 
 /*
-.grad {
-  background: url(http://www.publicdomainpictures.net/pictures/130000/velka/yellow-top-gradient-background.jpg) no-repeat center center fixed;
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
+a{
+      margin: auto;
+  font-family:"Times New Roman";
+  font-size:3em;
 }
 */
 
-/* footer */
+
+
+
+
 
 .footer {
   font-size: 1.2em;
-  letter-spacing: -1px;
-  text-align: center;
-  font-weight: normal;
-  margin-top: 5%;
-  padding-top: 50px;
+  letter-spacing: -0.0625em;
+  font-weight: bold;
 }
 
-footer a {
-  color:#3A75C4;
-}
-
-footer a:hover {
-  color: #3A75C4; 
+.footer a:hover {
   text-decoration: none;
 }
 
 
-
-
-
-
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.navbar {  background-color: #4471b1;
 }
 
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
 
 /* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 2px solid #428bca;
-  width: 30%;
-  margin-bottom: 1%;
-  @include box_sizing;
-
-}
-
-
-
-
-div > form{
-   top: 10%;
-   left: 20%;
-   margin-left: 30%;
-   margin-right: 30%;
-}
-
 
 #error_explanation {
   color: #f00;
@@ -190,6 +122,5 @@ div > form{
 }
 
 .field_with_errors {
-  @extend .control-group;
-  @extend .error;
+  @extend .has-error;
 }
