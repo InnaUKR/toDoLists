@@ -14,13 +14,31 @@
 	    <div class="collapse navbar-collapse" id="b-menu-1">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> About</a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+          <% if signed_in? %>
+          <li>
+          <div>
+            <span class="glyphicon glyphicon-user"></span> 
+            <!--<a href="/signout", method: "delete">SSSSS</a>-->
+            <%= link_to "Sign out", signout_path, method: "delete" %>
+          </div>
+            
+          </li>
+          <% else %>
+	        <li>
+            <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          </li>
+
+	        <li>
+            <a href='/signin'>
+              <span class="glyphicon glyphicon-log-in">Sign in</span>
+            </a>
+          </li>
+        <% end %>
+
 	      </ul>
 	    </div>
-
     </div>
-
 </div>
 
 <!--
