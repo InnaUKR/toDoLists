@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-	def show
-		@user = User.find(params[:id])
-  	end
+	#def show
+		#@user = User.find(params[:id])
+    #@projects = @user.projects.paginate(page: params[:page])
+  	#end
   	
     def new
     	@user = User.new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end

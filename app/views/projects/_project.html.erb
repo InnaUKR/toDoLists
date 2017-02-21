@@ -1,0 +1,8 @@
+<li>
+  <span class="title"><%= project.title %></span>
+    <% if current_user?(project.user) %>
+    <%= link_to "delete", project, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: project.title %>
+  <% end %>
+</li>

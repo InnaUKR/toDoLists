@@ -94,8 +94,6 @@ a{
 
 
 
-
-
 .footer {
   font-size: 1.2em;
   letter-spacing: -0.0625em;
@@ -107,8 +105,6 @@ a{
 }
 
 
-.navbar {  background-color: #4471b1;
-}
 
 
 /* forms */
@@ -124,4 +120,9 @@ a{
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+
+.projects {
+  list-style: none;
 }

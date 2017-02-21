@@ -1,3 +1,16 @@
 <%= provide(:title, @user.email) %>
 <p><%= @user.email %></p>
+<% if current_user?(@user) %>
 <h1> Здесь будет ToDoList</h1>
+
+  <div class="span8">
+    <% if @user.projects.any? %>
+      <h3>Projects (<%= @user.projects.count %>)</h3>
+      <ol class="projects">
+        <%= render @projects %>
+      </ol>
+      <%= will_paginate @projects %>
+    <% end %>
+  </div>
+</div>
+<% end %>
