@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-before_action :signed_in_user, only: [:create,:destroy]
+before_action :signed_in_user, only: [:create,:destroy, :edit, :update ]
 before_action :correct_user, only: :destroy
 
 
@@ -21,7 +21,10 @@ before_action :correct_user, only: :destroy
   	redirect_to root_url
   end
 
-
+=begin
+	
+	
+end
   	  def update
 
     if @project.update_attributes(project_params)
@@ -29,7 +32,17 @@ before_action :correct_user, only: :destroy
       redirect_to root_url
     end
   end
+=end
+  def update
+  	@project = Project.find(params[:id])
+    @project.update_attributes(project_params)
+    redirect_to root_url
 
+  end
+
+  def edit
+  	@project = Project.find(params[:id])
+  end
 
   private
 
