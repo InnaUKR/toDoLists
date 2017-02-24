@@ -1,8 +1,13 @@
-<li>
-  <span class="title"><%= project.title %></span>
-    <% if current_user?(project.user) %>
-    <%= link_to "delete", project, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: project.title %>
+<li class="list-group-item list-group-item-info">
+
+<%= link_to project.user.email, project.user %>
+
+  <%= project.title %>
+   <%= link_to edit_project_path(project), remote: true do %>
+    <button><i class="glyphicon glyphicon-edit"></i></button>
+    <% end %>
+    <%= link_to project, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
+  <button><i class="glyphicon glyphicon-trash"></i></button>
   <% end %>
+
 </li>
