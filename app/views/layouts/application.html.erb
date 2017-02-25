@@ -18,14 +18,37 @@
 
 
 
-
-
-
-
+    
+<script>
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+</script>
+<script type="text/javascript">
+	
+	$('.name-edit').live 'change', (event) ->
+  alert "Hello, World!"
+</script>
 
   		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->	
+
+
+
+
+		<% javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" %>
+
+<% javascript_include_tag "http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+      integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+      crossorigin="anonymous"%>
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <%= stylesheet_link_tag :on_the_spot %>
 	</head>
 
 	<body>
@@ -34,6 +57,10 @@
 		<div class="wrapper">	
 			<div class="content">
 				<div class="myContent">
+
+
+
+
 
 					<% flash.each do |key, value| %>
 		        		<%= content_tag(:div, value, class: "alert alert-#{key}") %>

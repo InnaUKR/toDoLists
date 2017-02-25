@@ -1,7 +1,0 @@
-<%= form_for(@project) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :title %>
-  </div>
-  <%= f.submit "Add TODO List", class: "btn btn-large btn-primary" %>
-<% end %>

@@ -31,7 +31,18 @@ end
   end
 
   def update
-    @project.update_attributes(project_params)
+
+
+ respond_to do |format|
+    if @project.update_attributes(project_params)
+      format.html { redirect_to @project, notice: 'Student was successfully updated.' }
+      format.json { respond_with_bip(@project) }
+    else
+      format.html { render action: "edit" }
+      format.json { render json: @project.errors, status: :unprocessable_entity }
+    end
+  end
+
   end
 
   def destroy

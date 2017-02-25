@@ -1,13 +1,12 @@
-<li class="list-group-item list-group-item-info">
+<br>	
+	<tr class="projects" id="row_<%= project.id %>">
 
-<%= link_to project.user.email, project.user %>
+	 	<td><%= best_in_place project, :title, :classes => 'name-edit'%></td>
+		<td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
+                  class: 'btn btn-primary btn-xs',
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %></td>
+	 
 
-  <%= project.title %>
-   <%= link_to edit_project_path(project), remote: true do %>
-    <button><i class="glyphicon glyphicon-edit"></i></button>
-    <% end %>
-    <%= link_to project, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
-  <button><i class="glyphicon glyphicon-trash"></i></button>
-  <% end %>
-
-</li>
+	</tr>
+</br>
