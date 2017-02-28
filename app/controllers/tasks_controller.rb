@@ -7,7 +7,6 @@ class TasksController < ApplicationController
 
 def show
   @tasks = @project.tasks
-  @id = @project.id
 end
 
 
@@ -15,6 +14,24 @@ end
     @task = @project.tasks.build(task_params)
     if @task.save
     end
+  end
+
+def update
+ respond_to do |format|
+ 	@task=Task.find_by_id(params[:id])
+    if @task.update_attributes(task_params)
+      format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+      format.json { respond_with_bip(@task) }
+    else
+      format.html { render action: "edit" }
+      format.json { render json: @task.errors, status: :unprocessable_entity }
+    end
+  end
+
+  end
+
+  def destroy
+    @task.destroy
   end
 
 	private

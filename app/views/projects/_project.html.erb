@@ -5,16 +5,12 @@
 
 	 	<% @tasks=project.tasks%>
 
-<% @tasks.each do |task| %>
-<%= task.title %>
+
 <div class="row">
-  <div class="col-md-7 col-md-offset-1" id="tasks">
-  <tr class="tasks" id="row_<%= task.id %>" >
- 	<li><%= best_in_place task, :title, :classes => 'name-edit'%></li>
-</tr>
+  <div class="col-md-7 col-md-offset-1" id="tasks"><%= render partial: 'tasks/task', collection: @tasks%>
   </div>
 </div>
-<% end %>
+
 
 
 <div align="right">
