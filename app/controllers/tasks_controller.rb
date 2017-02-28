@@ -1,8 +1,11 @@
 class TasksController < ApplicationController
 	before_action :set_project, only: [:new,:create]
   respond_to :html, :js
+
+
+
 	def new
-  		@task = @project.tasks.build
+  		@task = @project.tasks.new
 	end
 
 def show
@@ -11,9 +14,9 @@ end
 
 
   def create
+    @projects = Project.all
     @task = @project.tasks.build(task_params)
-    if @task.save
-    end
+    @task.save
   end
 
 def update
@@ -31,6 +34,8 @@ def update
   end
 
   def destroy
+    @projects = Project.all
+    @task=Task.find(params[:id])
     @task.destroy
   end
 
@@ -42,6 +47,5 @@ def update
 	def task_params
 		params[:task].permit(:title)
 	end
-
 
 end

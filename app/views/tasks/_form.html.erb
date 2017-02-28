@@ -1,4 +1,5 @@
 <%= form_for [@project, @project.tasks.build], remote: true  do |f|   %>
+
 <%= f.text_field :title %>
   <%= f.button :submit                           %>
 <% end %>

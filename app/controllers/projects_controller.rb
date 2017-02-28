@@ -4,6 +4,7 @@ before_action :correct_user, only: [:index, :edit, :update, :destroy]
 
 
 before_action :all_projects, only: [:create, :update, :destroy]
+before_action :all_tasks, only: [:create, :update, :destroy]
 #before_action :set_projects, only: [:edit,  :destroy]
 #before_filter :prepare_user_form, only: [:new]
   respond_to :html, :js
@@ -84,6 +85,10 @@ end
 def all_projects
   @projects =current_user.projects.all
   
+end
+
+def all_tasks
+  @tasks =@project.tasks.all
 end
 
 #def set_projects
