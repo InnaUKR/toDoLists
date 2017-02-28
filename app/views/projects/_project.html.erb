@@ -1,12 +1,39 @@
-<br>	
+<div>
 	<tr class="projects" id="row_<%= project.id %>">
 
 	 	<td><%= best_in_place project, :title, :classes => 'name-edit'%></td>
-		<td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
+
+	 	<% @tasks=project.tasks%>
+
+<% @tasks.each do |task| %>
+<%= task.title %>
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="tasks">
+  <tr class="tasks" id="row_<%= task.id %>" >
+ 	<li><%= best_in_place task, :title, :classes => 'name-edit'%></li>
+</tr>
+  </div>
+</div>
+<% end %>
+
+
+<div align="right">
+		<td>
+			<%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
                   class: 'btn btn-primary btn-xs',
                   method: :delete,
-                  data: {confirm: 'Are you sure?'} %></td>
-	 
+                  data: {confirm: 'Are you sure?'} %>
 
-	</tr>
-</br>
+
+<div class="row">
+  <div class="task-form col-md-6 col-md-offset-2" id="task-form_<%= project.id %>" data-id="task-form_<%= project.id %>" tyle="display:none;"></div>
+</div>
+
+ <%= link_to new_project_task_path(project_id: project.id), remote: true do %>
+      <button class="btn btn-primary" id="<%= project.id %>" data-id="<%= project.id %>" onclick="give(this.id)">Add Task</button>
+    <% end %>
+</td>
+</div>
+
+</div>
+</tr>

@@ -26,9 +26,13 @@ $(document).ready(function() {
 });
 </script>
 <script type="text/javascript">
-	
-	$('.name-edit').live 'change', (event) ->
-  alert "Hello, World!"
+	$(document).mouseup(function (e) {
+    var container = $("#project-form");
+    if (container.has(e.target).length === 0){
+        container.hide();
+    }
+
+});
 </script>
 
   		<!--[if lt IE 9]>

@@ -4,8 +4,14 @@ before_action :correct_user, only: [:index, :edit, :update, :destroy]
 
 
 before_action :all_projects, only: [:create, :update, :destroy]
-before_action :set_projects, only: [:edit, :update, :destroy]
+#before_action :set_projects, only: [:edit,  :destroy]
+#before_filter :prepare_user_form, only: [:new]
   respond_to :html, :js
+
+
+
+
+
 def index
   @projects =current_user.projects
      respond_to do |format|
@@ -19,14 +25,11 @@ def new
 end
 
 
-
-
   def create
     @project = current_user.projects.build(project_params)
     if @project.save
       #flash[:success] = "Project created!"
     else
-    	@feed_items = []
     end
   end
 
@@ -83,9 +86,10 @@ def all_projects
   
 end
 
-def set_projects
-  @project=Project.find(params[:id])
-end
+#def set_projects
+#  @project=Project.find(params[:id])
+#  @tasks= @project.tasks
+#end
 
 
 

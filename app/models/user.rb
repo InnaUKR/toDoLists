@@ -16,12 +16,6 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  def feed
-    # Это предварительное решение. См. полную реализацию в "Following users".
-    Project.where("user_id = ?", id)
-  end
-
-
   private
 
     def create_remember_token
