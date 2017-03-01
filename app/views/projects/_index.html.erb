@@ -1,9 +1,11 @@
 
 <div class="row">
   <div class="col-md-5 col-md-offset-1">
-    <h2>Projects</h2>
+     <div id="header">
+      <h1 id="main-header" class="text-uppercase text-center">Simple TODO Lists</h1>
+      <h4 class="text-uppercase text-center">From Ruby Garage</h4>
+    </div>
   </div>
-
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1" id="projects"><%= render partial: 'projects/project', collection: @projects%>
@@ -17,7 +19,7 @@
 
   <div class="col-md-2 col-md-offset-4">
     <%= link_to new_project_path, remote: true do %>
-      <button class="btn btn-default">New</button>
+      <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add TODO List</button>
     <% end %>
   </div>
 </div>

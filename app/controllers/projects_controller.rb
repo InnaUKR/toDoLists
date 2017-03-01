@@ -99,7 +99,7 @@ end
 
 
     def project_params
-      params.require(:project).permit(:title)
+      params.require(:project).permit(:title,:complete)
     end
     
     def correct_user

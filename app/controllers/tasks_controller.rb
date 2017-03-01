@@ -34,7 +34,7 @@ def update
   end
 
   def destroy
-    @projects = Project.all
+    @projects = current_users.projects
     @task=Task.find(params[:id])
     @task.destroy
   end
