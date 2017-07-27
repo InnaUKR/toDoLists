@@ -4,17 +4,16 @@ before_action :correct_user, only: [:index, :edit, :update, :destroy]
 
 
 before_action :all_projects, only: [:create, :update, :destroy]
-before_action :all_tasks, only: [:create, :update, :destroy]
+#before_action :all_tasks, only: [:create, :update, :destroy]
 #before_action :set_projects, only: [:edit,  :destroy]
-#before_filter :prepare_user_form, only: [:new]
-  respond_to :html, :js
+#before_filter :prepare_user_form, only: [:new] respond_to :html, :js
 
 
 
 
 
 def index
-  @projects =current_user.projects
+  @projects = current_user.projects
      respond_to do |format|
     format.html
     format.json
@@ -25,18 +24,28 @@ def new
   @project = Project.new
 end
 
-
   def create
+    #@current_user = User.find(params[:id])
     @project = current_user.projects.build(project_params)
     if @project.save
-      #flash[:success] = "Project created!"
+      flash[:succses] = 'Project was created'
+      redirect_to root_url
     else
+      flash[:error] = 'Project could not be created'
     end
+=begin
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to root_url, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :created, location: @project }
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+=end
   end
 
   def update
-
-
  respond_to do |format|
     if @project.update_attributes(project_params)
       format.html { redirect_to @project, notice: 'Student was successfully updated.' }
@@ -51,6 +60,8 @@ end
 
   def destroy
     @project.destroy
+    flash[:success] = "Project deleted"
+    redirect_to request.referrer || root_url
   end
 =begin
   def destroy
@@ -83,12 +94,12 @@ end
 =end
   private
 def all_projects
-  @projects =current_user.projects.all
+  @projects = current_user.projects.all
   
 end
 
-def all_tasks
-  @tasks =@project.tasks.all
+def all_taskts
+  @tasks = @project.tasks.all
 end
 
 #def set_projects
@@ -99,7 +110,7 @@ end
 
 
     def project_params
-      params.require(:project).permit(:title,:complete)
+      params.require(:project).permit(:title)
     end
     
     def correct_user

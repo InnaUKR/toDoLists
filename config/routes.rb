@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   resources :projects, only: [:create, :edit, :update, :show, :destroy, :index, :new]
 
   resources :projects, shallow: true do
-    resources :tasks
+    resources :tasks, path: 'project_tasks'
   end
   root to: 'static_pages#home'
 
 
 
-  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

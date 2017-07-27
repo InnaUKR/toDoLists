@@ -18,7 +18,7 @@
 	 	<% @tasks=project.tasks%>
 
 <div class="panel-body">
-  <div class="col-md-7 col-md-offset-1" id="tasks"><%= render partial: 'tasks/task', collection: @tasks%>
+  <div class="col-md-7 col-md-offset-1" id="tasks"><%= render partial: 'tasks/task', collection: @tasks, :locals => {:project => project} %>
   </div>
 </div>
 

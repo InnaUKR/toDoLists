@@ -1,10 +1,8 @@
 class TasksController < ApplicationController
-	before_action :set_project, only: [:new,:create]
+	before_action :set_project, only: [:new, :create, :index, :update ]
   respond_to :html, :js
 
-
-
-	def new
+  def new
   		@task = @project.tasks.new
 	end
 
@@ -14,9 +12,17 @@ end
 
 
   def create
-    @projects = Project.all
-    @task = @project.tasks.build(task_params)
-    @task.save
+    @task = @project.tasks.scope.build(task_params)
+    #@task = @project.tasks.build(task_params)
+    #@task.save
+
+    if @task.save
+      flash[:succses] = 'Project was created'
+      redirect_to root_url
+    else
+      flash[:error] = 'Project could not be created'
+    end
+
   end
 
 def update
@@ -33,10 +39,17 @@ def update
 
   end
 
+
   def destroy
-    @projects = current_users.projects
-    @task=Task.find(params[:id])
-    @task.destroy
+    #@projects = current_users.projects
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
+    if @task.destroy
+      flash[:succses] = 'Task was deleted'
+    else
+      flash[:error] = 'Task couldnt be deleted'
+    end
+    redirect_to request.referrer || root_url
   end
 
 	private

@@ -4,12 +4,13 @@
 <td><span style='font-size: 1.75em;'><%= best_in_place task, :complete, as: :checkbox, collection: {false: "-", true: "+"}  %></span></td>
  	<td><%= best_in_place task, :title, :classes => 'name-edit'%></td>
  	<div class="right">
- 	<td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task, remote: true,
+  <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
                   class: 'btn btn-primary btn-xs',
                   method: :delete,
                   data: {confirm: 'Are you sure?'} %>
                   </td>
-    </div>
+
+  </div>
  	</td>	
 </div>
 </tr>
