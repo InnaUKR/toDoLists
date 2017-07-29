@@ -18,7 +18,7 @@
 	 	<% @tasks=project.tasks%>
 
 <div class="panel-body">
-  <div class="col-md-7 col-md-offset-1" id="tasks"><%= render partial: 'tasks/task', collection: @tasks, :locals => {:project => project} %>
+  <div class="col-md-7 col-md-offset-1" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: @tasks, :locals => {:project => project} %>
   </div>
 </div>
 
@@ -28,7 +28,7 @@
 
 
 <div class="row">
-  <div class="task-form col-md-6 col-md-offset-2" id="task-form_<%= project.id %>" tyle="display:none;"></div>
+  <div class="task-form col-md-6 col-md-offset-2" id="task-form-<%= project.id %>" tyle="display:none;"></div>
 </div>
 
  <%= link_to new_project_task_path(project_id: project.id), remote: true do %>

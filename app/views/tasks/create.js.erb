@@ -1,2 +1,2 @@
-$('#projects').html("<%= j (render @projects) %>");
-$('#project-form').slideUp(350);
+$('#tasks_<%= @project.id %>').html("<%= j (render @tasks) %>");
+$('task-form-<%= @project.id %>').slideUp(350);
