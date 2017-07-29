@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
 before_action :signed_in_user, only: [:create,:destroy, :index, :update ]
-before_action :correct_user, only: [:index, :edit, :update, :destroy]
+before_action :correct_user, only: [:index, :edit, :update, :destroy, :create]
 
 
 before_action :all_projects, only: [:create, :update, :destroy]
 #before_action :all_tasks, only: [:create, :update, :destroy]
 #before_action :set_projects, only: [:edit,  :destroy]
-#before_filter :prepare_user_form, only: [:new] respond_to :html, :js
+#before_filter :prepare_user_form, only: [:new]
+respond_to :html, :js
 
 
 
@@ -27,11 +28,17 @@ end
   def create
     #@current_user = User.find(params[:id])
     @project = current_user.projects.build(project_params)
-    if @project.save
-      flash[:succses] = 'Project was created'
-      redirect_to root_url
-    else
-      flash[:error] = 'Project could not be created'
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to root_url }
+        format.js
+        format.json{render action: 'show',
+                           status: :created, location: @project}
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @project.errors,
+                             status: :unprocessable_entity }
+      end
     end
 =begin
     respond_to do |format|

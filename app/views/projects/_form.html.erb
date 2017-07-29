@@ -1,4 +1,4 @@
-<%=form_for @project do |f|   %>
+<%=form_for @project, remote: true do |f|   %>
   <%= f.text_field   :title                   %>
-  <%= f.button :submit                           %>
+  <%= f.button :submit                      %>
 <% end %>
