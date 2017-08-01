@@ -67,8 +67,13 @@ end
 
   def destroy
     @project.destroy
-    flash[:success] = "Project deleted"
-    redirect_to request.referrer || root_url
+    #flash[:success] = "Project deleted"
+    #redirect_to request.referrer || root_url
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 =begin
   def destroy

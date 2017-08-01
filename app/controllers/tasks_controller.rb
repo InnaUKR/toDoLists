@@ -17,7 +17,7 @@ end
     #@task.save
 
     if @task.save
-      flash[:succses] = 'Project was created'
+      #flash[:succses] = 'Project was created'
       redirect_to root_url
     else
       flash[:error] = 'Project could not be created'
