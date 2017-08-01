@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
 before_action :signed_in_user, only: [:create,:destroy, :index, :update ]
 before_action :correct_user, only: [:index, :edit, :update, :destroy, :create]
 
-
 before_action :all_projects, only: [:create, :update, :destroy]
 #before_action :all_tasks, only: [:create, :update, :destroy]
 #before_action :set_projects, only: [:edit,  :destroy]

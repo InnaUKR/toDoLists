@@ -15,10 +15,10 @@
 </tr>
 </div>
 </div>
-	 	<% @tasks=project.tasks%>
+
 
 <div class="panel-body">
-  <div class="col-md-7 col-md-offset-1" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: @tasks, :locals => {:project => project} %>
+  <div class="col-md-7 col-md-offset-1" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
   </div>
 </div>
 
