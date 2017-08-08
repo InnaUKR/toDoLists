@@ -1,0 +1,1 @@
+$("#tasks_<%=@project.id %>").html("<%= j( render partial: 'tasks/task', collection: @project.tasks, :locals => {:project => @project})%>");

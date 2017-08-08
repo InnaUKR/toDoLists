@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :projects, only: [:create, :edit, :update, :show, :destroy, :index, :new]
 
   resources :projects, shallow: true do
-    resources :tasks, path: 'project_tasks'
+    resources :tasks, path: 'project_tasks' do
+      member do
+        patch :complete
+      end
+    end
+
   end
   root to: 'static_pages#home'
 

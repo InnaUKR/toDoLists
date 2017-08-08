@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'best_in_place', '~> 3.0.1'
 
 gem 'spring',        group: :development
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'rspec'
 gem 'devise'
 group :test do

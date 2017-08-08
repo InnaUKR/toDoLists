@@ -1,17 +1,37 @@
-<table class="table table-hover">
-<tr class="tasks" id="row_<%= task.id %>">
-<div class="row">
-<td><span style='font-size: 1.75em;'><%= best_in_place task, :complete, as: :checkbox, collection: {false: "-", true: "+"}  %></span></td>
- 	<td><%= best_in_place task, :title, :classes => 'name-edit'%></td>
- 	<div class="right">
-  <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
-                  class: 'btn btn-primary btn-xs',
-                  method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
-                  </td>
+<table class="table table-hover" id="row_<%=task.id %>">
+<tr class="tasks">
+  <div class="row">
+    <div class="complete">
+      <% if task.completeda? %>
+          <td>
+          <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
+              <input id="#check_<%=task.id%>" type="checkbox" checked/>
+          <% end %>
+          </td>
+          <div class="<%= task.id %>">
+            <td style="opacity: 0.4;"><%=best_in_place task, :title, :classes => 'name-edit'%></td>
+          </div>
+      <% else %>
+          <td>
+          <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
+              <input id="#check_<%=task.id%>" type="checkbox"/>
+          <% end %>
+          </td>
+          <div class="<%= task.id %>">
+            <td><%= best_in_place task, :title, :classes => 'name-edit'%></td>
+          </div>
+      <% end %>
+      <div class="right">
+        <div class="trash">
+          <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
+                          method: :delete,
+                          data: {confirm: 'Are you sure?'} %>
+          </td>
+        </div>
 
+      </div>
+    </div>
+    </td>
   </div>
- 	</td>	
-</div>
 </tr>
 </table>

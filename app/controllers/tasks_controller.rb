@@ -57,6 +57,21 @@ def update
       end
   end
 
+  def complete
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
+    if @task[:complete] == false
+      @task.update_attribute(:complete, true)
+    else
+      @task.update_attribute(:complete, false)
+    end
+    respond_to do |format|
+      format.html { redirect_to root_url}
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
 	private
 	def set_project
 		@project = Project.find(params[:project_id])
