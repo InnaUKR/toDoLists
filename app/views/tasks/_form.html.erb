@@ -1,5 +1,13 @@
 <%= form_for([@project, @project.tasks.build], remote: true) do |f| %>
 
 <%= f.text_field :title %>
+    <div id="star-priority"></div>
   <%= f.button :submit                           %>
 <% end %>
+
+<script>
+  $('#star-priority').raty({
+     path: '/assets',
+      scoreName: 'task[priority]'
+  });
+</script>

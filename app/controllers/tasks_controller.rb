@@ -78,7 +78,7 @@ def update
 	end
 
 	def task_params
-		params[:task].permit(:title)
+		params[:task].permit(:title, :priority)
 	end
 
 end

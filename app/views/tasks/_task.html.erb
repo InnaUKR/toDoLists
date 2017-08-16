@@ -21,6 +21,7 @@
             <td><%= best_in_place task, :title, :classes => 'name-edit'%></td>
           </div>
       <% end %>
+      <td><div class="star-priority" data-score= <%= task.priority %>></div></td>
       <div class="right">
         <div class="trash">
           <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
@@ -35,3 +36,13 @@
   </div>
 </tr>
 </table>
+
+<script>
+    $('.star-priority').raty({
+        path: '/assets',
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+</script>
