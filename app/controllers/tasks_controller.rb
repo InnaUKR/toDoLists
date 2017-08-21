@@ -1,4 +1,6 @@
+
 class TasksController < ApplicationController
+  require 'date'
 	before_action :set_project, only: [:new, :create, :index, :update ]
   respond_to :html, :js
 
@@ -12,7 +14,9 @@ end
 
 
   def create
+    #@task = @project.tasks.new(task_params)
     @task = @project.tasks.scope.build(task_params)
+
     #@task = @project.tasks.build(task_params)
     #@task.save
     respond_to do |format|
@@ -78,7 +82,13 @@ def update
 	end
 
 	def task_params
-		params[:task].permit(:title, :priority)
+		task=params[:task].permit(:title, :priority, :deadline)
+    if task[:deadline]!=""
+      task[:deadline]=DateTime.strptime(t[:deadline], "%m/%d/%Y  %H:%M %p")
+    else
+      task[:deadline]= nil
+    end
+    task
 	end
 
 end

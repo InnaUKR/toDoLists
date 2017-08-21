@@ -17,11 +17,15 @@
 //= require jquery.purr
 //= require best_in_place
 
+//= require moment
+//= require bootstrap-datetimepicker
 
+//= require bootstrap
+//= require jquery
+//= require jquery_ujs
 
 //= require turbolinks
 //= require_tree .
 
 
-//= require jquery
-//= require jquery_ujs
+

@@ -22,6 +22,15 @@
           </div>
       <% end %>
       <td><div class="star-priority" data-score= <%= task.priority %>></div></td>
+
+      <td>
+        <% require 'date'%>
+        <% if !task.deadline.nil? %>
+            <%= task.deadline.strftime("%d-%m-%Y  %H:%M %p") %>
+            <% else %>
+        <%= 'someday:)' %>
+        <% end %>
+      </td>
       <div class="right">
         <div class="trash">
           <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
