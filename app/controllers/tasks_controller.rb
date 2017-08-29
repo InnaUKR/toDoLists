@@ -84,7 +84,7 @@ def update
 	def task_params
 		task=params[:task].permit(:title, :priority, :deadline)
     if task[:deadline]!=""
-      task[:deadline]=DateTime.strptime(t[:deadline], "%m/%d/%Y  %H:%M %p")
+      task[:deadline]=DateTime.strptime(task[:deadline], "%m/%d/%Y  %H:%M %p")
     else
       task[:deadline]= nil
     end
