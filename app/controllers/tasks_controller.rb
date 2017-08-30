@@ -1,7 +1,7 @@
 
 class TasksController < ApplicationController
   require 'date'
-	before_action :set_project, only: [:new, :create, :index, :update ]
+	before_action :set_project, only: [:new, :create, :index, :edit, :update]
   respond_to :html, :js
 
   def new
@@ -33,12 +33,20 @@ end
     end
   end
 
+
+  def edit
+    @task = @project.tasks.find(params[:id])
+  end
+
 def update
+  @task = @project.tasks.find(params[:id])
+  deadline =  task_deadline(params[:deadline])
  respond_to do |format|
- 	@task=Task.find_by_id(params[:id])
-    if @task.update_attributes(task_params)
-      format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-      format.json { respond_with_bip(@task) }
+    if @task.update(title: params[:title], priority: params[:priority], deadline: deadline)
+      format.html { redirect_to root_url }
+      format.js
+      format.json{render action: 'show',
+                         status: :created, location: @task}
     else
       format.html { render action: "edit" }
       format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -81,14 +89,20 @@ def update
 		@project = Project.find(params[:project_id])
 	end
 
+  def task_deadline(deadline)
+    if deadline!= ""
+      deadline=DateTime.strptime(deadline, "%m/%d/%Y  %H:%M %p")
+    else
+      deadline= nil
+    end
+  end
+
 	def task_params
 		task=params[:task].permit(:title, :priority, :deadline)
-    if task[:deadline]!=""
-      task[:deadline]=DateTime.strptime(task[:deadline], "%m/%d/%Y  %H:%M %p")
-    else
-      task[:deadline]= nil
-    end
+    task[:deadline]= task_deadline(task[:deadline])
     task
-	end
+  end
+
+
 
 end

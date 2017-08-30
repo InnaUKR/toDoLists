@@ -17,21 +17,21 @@ body, html {
 
 .content{
     display: flex;
-    height: 90%;
+    height: 100%;
 }
 
 
  .myContent{  
       margin-left:auto;
   margin-right:auto;
-width:45%;}
+width:100%;}
 
 @media (max-width:767px){
-  .myContent{ width: 70%;}
+  .myContent{ width: 90%;}
 
 }
 @media (max-width:990px){
-    .myContent{ width: 70%;}
+    .myContent{ width: 80%;}
 }
 
 body {

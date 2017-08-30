@@ -18,11 +18,10 @@
           <% end %>
           </td>
           <div class="<%= task.id %>">
-            <td><%= best_in_place task, :title, :classes => 'name-edit'%></td>
+            <td><%= task.title%></td>
           </div>
       <% end %>
       <td><div class="star-priority" data-score= <%= task.priority %>></div></td>
-
       <td>
         <% require 'date'%>
         <% if !task.deadline.nil? %>
@@ -37,6 +36,9 @@
                           method: :delete,
                           data: {confirm: 'Are you sure?'} %>
           </td>
+        </div>
+        <div class="update">
+          <td><%=link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_task_path(project_id: project, id: task), remote: true%></td>
         </div>
 
       </div>
