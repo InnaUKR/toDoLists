@@ -1,5 +1,5 @@
 <div>
-  <div class="container" id="panel-group_<%= project.id %>">
+  <div id="panel-group_<%= project.id %>">
       <div class="panel panel-primary ">
             <div class="panel-heading ">
                 <tr class="projects" id="row_<%= project.id %>">
@@ -15,10 +15,13 @@
             </div>
       </div>
 
-  <div class="">
+  <div>
       <div class="panel-body">
           <div class="" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
           </div>
+        <div class="row">
+          <div class="task-form" id="task-form-<%= project.id %>" tyle="display:none;"></div>
+        </div>
       </div>
   </div>
 
@@ -27,9 +30,7 @@
 
 
 
-<div class="row">
-  <div class="task-form" id="task-form-<%= project.id %>" tyle="display:none;"></div>
-</div>
+
 
   <div class="text-center btn_margin"> <%= link_to new_project_task_path(project_id: project.id), remote: true do %>
         <button class="btn btn-success ">Add Task</button>
