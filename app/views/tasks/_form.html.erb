@@ -1,6 +1,7 @@
+<div class="container">
+  <div class="new_form">
 <%= form_for([@project, @project.tasks.build], remote: true) do |f| %>
-
-<%= f.text_field :title %>
+    <%= f.text_field :title %>
     <td><div id="star-priority"></div></td>
     <div class='input-group date' id='datetimepicker1'>
       <%= f.text_field :deadline, class: 'form-control' %>
@@ -8,9 +9,10 @@
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
     </div>
-  <%= f.button :submit                           %>
+  <%= f.submit 'Save task',:class => "btn btn-primary"                           %>
 <% end %>
-
+</div>
+</div>
 
 <script type="text/javascript">
     $(function () {

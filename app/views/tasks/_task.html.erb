@@ -1,52 +1,59 @@
-<table class="table table-hover" id="row_<%=task.id %>">
-<tr class="tasks">
+<div id="row_<%=task.id %>">
   <div class="row">
     <div class="complete">
       <% if task.completeda? %>
-          <td>
+
+            <div class="col-xs-1">
           <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
               <input id="#check_<%=task.id%>" type="checkbox" checked/>
           <% end %>
-          </td>
-          <div class="<%= task.id %>">
-            <td style="opacity: 0.4;"><%=best_in_place task, :title, :classes => 'name-edit'%></td>
+            </div>
+
+          <div class="<%= task.id %> col-xs-4">
+            <%= task.title%>
           </div>
+
       <% else %>
-          <td>
+
+            <div class="col-xs-1">
           <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
               <input id="#check_<%=task.id%>" type="checkbox"/>
           <% end %>
-          </td>
-          <div class="<%= task.id %>">
-            <td><%= task.title%></td>
+            </div>
+
+          <div class="<%= task.id %> col-xs-4">
+            <%= task.title%>
           </div>
+
       <% end %>
-      <td><div class="star-priority" data-score= <%= task.priority %>></div></td>
-      <td>
+      <div class="col-xs-2">
+      <div class="star-priority" data-score= <%= task.priority %>></div>
+      </div>
+      <div class="col-xs-3">
         <% require 'date'%>
         <% if !task.deadline.nil? %>
             <%= task.deadline.strftime("%d-%m-%Y  %H:%M %p") %>
             <% else %>
         <%= 'someday:)' %>
         <% end %>
-      </td>
-      <div class="right">
-        <div class="trash">
-          <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
+      </div>
+
+      <div class="col-xs-2">
+
+        <span class="trash">
+          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
                           method: :delete,
                           data: {confirm: 'Are you sure?'} %>
-          </td>
-        </div>
-        <div class="update">
-          <td><%=link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_task_path(project_id: project, id: task), remote: true%></td>
-        </div>
+        </span>
+
+        <span class="update">
+          <%=link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_task_path(project_id: project, id: task), remote: true%>
+        </span>
 
       </div>
     </div>
-    </td>
   </div>
-</tr>
-</table>
+</div>
 
 <script>
     $('.star-priority').raty({

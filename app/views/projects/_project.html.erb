@@ -1,39 +1,40 @@
 <div>
-<div id="panel-group_<%= project.id %>">
-  <div class="panel panel-primary">
-  <div class="panel-heading">
-	<tr class="projects" id="row_<%= project.id %>">
+  <div class="container" id="panel-group_<%= project.id %>">
+      <div class="panel panel-primary ">
+            <div class="panel-heading ">
+                <tr class="projects" id="row_<%= project.id %>">
 
-	 	<td>
-    <span class="glyphicon glyphicon-calendar vcenter"></span><%= best_in_place project, :title, :classes => 'name-edit'%></td>
-<div align="right">
-          <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
-                  class: 'btn btn-primary btn-xs',
-                  method: :delete,
-                  data: {confirm: 'Are you sure?'} %></td>
-                  </div>
-</tr>
-</div>
-</div>
+                    <span class="glyphicon glyphicon-calendar vcenter"></span><%= best_in_place project, :title, :classes => 'name-edit'%></td>
+                       <div align="right">
+                             <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
+                                  class: 'btn btn-primary btn-xs',
+                                  method: :delete,
+                                  data: {confirm: 'Are you sure?'} %>
+                       </div>
+                </tr>
+            </div>
+      </div>
 
-
-<div class="panel-body">
-  <div class="col-md-7 col-md-offset-1" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
+  <div class="">
+      <div class="panel-body">
+          <div class="" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
+          </div>
+      </div>
   </div>
-</div>
 
 
 
-		
+
 
 
 <div class="row">
-  <div class="task-form col-md-6 col-md-offset-2" id="task-form-<%= project.id %>" tyle="display:none;"></div>
+  <div class="task-form" id="task-form-<%= project.id %>" tyle="display:none;"></div>
 </div>
 
- <%= link_to new_project_task_path(project_id: project.id), remote: true do %>
-      <button class="btn btn-success">Add Task</button>
-    <% end %>
+  <div class="text-center btn_margin"> <%= link_to new_project_task_path(project_id: project.id), remote: true do %>
+        <button class="btn btn-success ">Add Task</button>
+    <% end %></div>
+
 </td>
 </div>
 

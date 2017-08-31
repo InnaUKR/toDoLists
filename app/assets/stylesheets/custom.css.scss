@@ -24,14 +24,14 @@ body, html {
  .myContent{  
       margin-left:auto;
   margin-right:auto;
-width:100%;}
+width:90%;}
 
 @media (max-width:767px){
   .myContent{ width: 90%;}
 
 }
 @media (max-width:990px){
-    .myContent{ width: 80%;}
+    .myContent{ width: 90%;}
 }
 
 body {
@@ -125,8 +125,33 @@ a{
 
 .projects {
   list-style: none;
+
 }
 
 .right{
   float:right;
+}
+
+div.panel-body{
+  background-color: #f0f0f0;
+  border-radius: 1em 1em 1em 1em;
+  margin: 1em;
+}
+
+div.container{
+  background-color: #f0f0f0;
+  border-radius: 0 0 1em 1em;
+  padding: 0;
+  margin: 2em;
+  width:70%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.btn_margin{
+  margin: 1em;
+}
+
+div.new_form{
+  margin: 1em;
 }
