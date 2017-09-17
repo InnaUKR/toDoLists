@@ -8,9 +8,9 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @tasks = @project.tasks
     i = @deleted_position
-    @tasks[(@deleted_position-1)..-1].each do |n|
-        n.update_attributes(position: i)
-        i += 1
+    @tasks[(@deleted_position - 1)..-1].each do |n|
+      n.update_attributes(position: i)
+      i += 1
     end
   end
 
