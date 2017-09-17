@@ -3,12 +3,8 @@ class StaticPagesController < ApplicationController
 
   def home
     if signed_in?
-      	@projects = current_user.projects.all
-        @project = current_user.projects.build
+      @projects = current_user.projects.all
+      @project = current_user.projects.build
     end
-
-  end
-
-  def about
   end
 end

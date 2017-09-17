@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   require 'date'
-  before_action :set_project, only: [:new, :create, :index, :edit, :update]
+  before_action :set_project, only: %i[new create index edit update]
   after_action :update_priority, only: [:destroy]
   respond_to :html, :js
 
@@ -13,17 +13,15 @@ class TasksController < ApplicationController
       n.update_attributes(position: i)
       i += 1
     end
-
   end
 
   def new
     @task = @project.tasks.new
-    end
+  end
 
   def show
     @tasks = @project.tasks
   end
-
 
   def create
     @task = @project.tasks.scope.build(task_params)
@@ -31,15 +29,19 @@ class TasksController < ApplicationController
       if @task.save
         @tasks = @project.tasks
         @previous_position = @tasks.length
-        @task.update_attributes(:position => @previous_position)
+        @task.update_attributes(position: @previous_position)
         format.html { redirect_to root_url }
         format.js
-        format.json{render action: 'show',
-                           status: :created, location: @task}
+        format.json do
+          render action: 'show',
+                 status: :created, location: @task
+        end
       else
         format.html { render action: 'new' }
-        format.json { render json: @task.errors,
-                             status: :unprocessable_entity }
+        format.json do
+          render json: @task.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -50,7 +52,7 @@ class TasksController < ApplicationController
 
   def update
     @task = @project.tasks.find(params[:id])
-    deadline =  task_deadline(params[:deadline])
+    deadline = task_deadline(params[:deadline])
     respond_to do |format|
       if @task.update(title: params[:title], priority: params[:priority], deadline: deadline)
         format.html { redirect_to root_url }
@@ -71,7 +73,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :no_content }
-      format.js   { render :layout => false }
+      format.js   { render layout: false }
     end
   end
 
@@ -84,37 +86,28 @@ class TasksController < ApplicationController
       @task.update_attribute(:complete, false)
     end
     respond_to do |format|
-      format.html { redirect_to root_url}
+      format.html { redirect_to root_url }
       format.json { head :no_content }
-      format.js   { render :layout => false }
+      format.js   { render layout: false }
     end
   end
 
   def sort
-    params[:order].each do |key,value|
+    params[:order].each_value do |_key, value|
       Task.find(value[:id]).update_attribute(:position, value[:position])
     end
-    render :nothing => true
-    end
+    render nothing: true
+  end
 
   private
 
-	def set_project
+  def set_project
     @project = Project.find(params[:project_id])
   end
 
-  def task_deadline(deadline)
-    if deadline!= ""
-      deadline=DateTime.strptime(deadline, "%m/%d/%Y  %H:%M %p")
-    else
-      deadline= nil
-    end
-  end
-
-	def task_params
-		task=params[:task].permit(:title, :priority, :deadline)
-    task[:deadline]= task_deadline(task[:deadline])
+  def task_params
+    task = params[:task].permit(:title, :priority, :deadline)
+    task[:deadline] = task_deadline(task[:deadline])
     task
   end
-
 end
