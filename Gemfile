@@ -31,7 +31,6 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'momentjs-rails', '>= 2.9.0'
 

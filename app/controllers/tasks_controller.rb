@@ -2,7 +2,17 @@
 class TasksController < ApplicationController
   require 'date'
 	before_action :set_project, only: [:new, :create, :index, :edit, :update]
+  after_action :update_priority, only: [:destroy]
   respond_to :html, :js
+  def update_priority
+    @project = Project.find(params[:project_id])
+    @tasks = @project.tasks
+    i = @deleted_position
+    @tasks[(@deleted_position-1)..-1].each do |n|
+        n.update_attributes(position: i)
+        i += 1
+    end
+  end
 
   def new
   		@task = @project.tasks.new
@@ -14,13 +24,12 @@ end
 
 
   def create
-    #@task = @project.tasks.new(task_params)
     @task = @project.tasks.scope.build(task_params)
-
-    #@task = @project.tasks.build(task_params)
-    #@task.save
     respond_to do |format|
       if @task.save
+        @tasks = @project.tasks
+        @previous_position = @tasks.length
+        @task.update_attributes(:position => @previous_position)
         format.html { redirect_to root_url }
         format.js
         format.json{render action: 'show',
@@ -60,6 +69,7 @@ def update
     #@projects = current_users.projects
     @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
+    @deleted_position = @task.position
     @task.destroy
 
       respond_to do |format|
@@ -83,6 +93,16 @@ def update
       format.js   { render :layout => false }
     end
   end
+
+  def sort
+    params[:order].each do |key,value|
+      Task.find(value[:id]).update_attribute(:position, value[:position])
+    end
+    render :nothing => true
+  end
+
+
+
 
 	private
 	def set_project

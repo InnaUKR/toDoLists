@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     end
 
   end
+  resources :tasks do
+    put :sort, on: :collection
+  end
+
   root to: 'static_pages#home'
 
 

@@ -17,7 +17,7 @@
 
   <div>
       <div class="panel-body">
-          <div class="" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
+          <div class="sortable" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
           </div>
         <div class="row">
           <div class="task-form" id="task-form-<%= project.id %>" tyle="display:none;"></div>
@@ -41,3 +41,15 @@
 
 </div>
 </tr>
+
+
+<script>
+    var ready;
+    ready = function(){
+        // call sortable on our div with the sortable class
+        $('.sortable').sortable();
+    }
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+</script>
