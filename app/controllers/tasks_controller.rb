@@ -1,26 +1,28 @@
-
 class TasksController < ApplicationController
   require 'date'
-	before_action :set_project, only: [:new, :create, :index, :edit, :update]
+  before_action :set_project, only: [:new, :create, :index, :edit, :update]
   after_action :update_priority, only: [:destroy]
   respond_to :html, :js
+
   def update_priority
     @project = Project.find(params[:project_id])
     @tasks = @project.tasks
     i = @deleted_position
+
     @tasks[(@deleted_position - 1)..-1].each do |n|
       n.update_attributes(position: i)
       i += 1
     end
+
   end
 
   def new
-  		@task = @project.tasks.new
-	end
+    @task = @project.tasks.new
+    end
 
-def show
-  @tasks = @project.tasks
-end
+  def show
+    @tasks = @project.tasks
+  end
 
 
   def create
@@ -42,41 +44,35 @@ end
     end
   end
 
-
   def edit
     @task = @project.tasks.find(params[:id])
   end
 
-def update
-  @task = @project.tasks.find(params[:id])
-  deadline =  task_deadline(params[:deadline])
- respond_to do |format|
-    if @task.update(title: params[:title], priority: params[:priority], deadline: deadline)
-      format.html { redirect_to root_url }
-      format.js
-      format.json{render action: 'show',
-                         status: :created, location: @task}
-    else
-      format.html { render action: "edit" }
-      format.json { render json: @task.errors, status: :unprocessable_entity }
+  def update
+    @task = @project.tasks.find(params[:id])
+    deadline =  task_deadline(params[:deadline])
+    respond_to do |format|
+      if @task.update(title: params[:title], priority: params[:priority], deadline: deadline)
+        format.html { redirect_to root_url }
+        format.js
+        format.json { render action: 'show', status: :created, location: @task }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  end
-
-
   def destroy
-    #@projects = current_users.projects
     @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
     @deleted_position = @task.position
     @task.destroy
-
-      respond_to do |format|
-        format.html { redirect_to root_url }
-        format.json { head :no_content }
-        format.js   { render :layout => false }
-      end
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   def complete
@@ -99,15 +95,13 @@ def update
       Task.find(value[:id]).update_attribute(:position, value[:position])
     end
     render :nothing => true
-  end
+    end
 
+  private
 
-
-
-	private
 	def set_project
-		@project = Project.find(params[:project_id])
-	end
+    @project = Project.find(params[:project_id])
+  end
 
   def task_deadline(deadline)
     if deadline!= ""
@@ -122,7 +116,5 @@ def update
     task[:deadline]= task_deadline(task[:deadline])
     task
   end
-
-
 
 end
