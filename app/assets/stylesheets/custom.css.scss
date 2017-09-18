@@ -26,12 +26,31 @@ body, html {
   margin-right:auto;
 width:90%;}
 
-@media (max-width:767px){
+@media (max-width: 799px) and (min-width: 300px) {
   .myContent{ width: 90%;}
+  .sign{
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+  }
 
 }
-@media (max-width:990px){
-    .myContent{ width: 90%;}
+@media (max-width:990px) and (min-width: 800px){
+  .myContent{ width: 90%;}
+  .sign{
+    width: 60%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media (min-width: 991px) {
+  .sign{
+    width: 40%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
 }
 
 body {
@@ -154,6 +173,30 @@ div.container{
 
 div.new_form{
   margin: 1em;
+}
+#simpleTodoLists, .sign-text{
+  font-family: 'Yantramanav', sans-serif;
+  font-style: normal;
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 0.7em;
+}
+#fromRG{
+  font-family: 'Yantramanav', sans-serif;
+  font-style: normal;
+  font-size: 1.82em;
+  font-stretch: ultra-expanded;
+  font-weight: 100;
+  line-height: 0.3em;
+  color: #555555;
+  margin-bottom: 2.63em;
+}
+
+.label-text{
+  font-family: 'Yantramanav', sans-serif;
+  color: #2E2F30;
+  font-size: 1.5em;
+  line-height: 0.3em;
 }
 
 

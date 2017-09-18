@@ -1,4 +1,8 @@
 <% provide(:title, 'Home') %>
+<div id="header">
+  <h1 id="simpleTodoLists" class="text-uppercase text-center">Simple TODO Lists</h1>
+  <h4 id="fromRG" class="text-uppercase text-center">From Ruby Garage</h4>
+</div>
 
 <% if signed_in? %>
     <div class="row">
@@ -9,9 +13,9 @@
       </aside>
     </div>
 <% else %>
-	<h1>SIMPLE TODO LIST</h1>
-	<h2>This is the home page</h2>
 	<div class="text-center">
-	  <%= link_to "Sign up now!", signup_path , class: "btn btn-large btn-primary " %>
+    <a href="/signup">
+      <button class="btn btn-primary">Sign up now!</button>
+    </a>
 	</div>
 <% end %>
