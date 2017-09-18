@@ -1,27 +1,17 @@
 <% provide(:title, 'Home') %>
 
 <% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
-
-
-
-
-      <section>
-        <%= render 'projects/index' %>
-      </section>
-
-
-
-
-    </aside>
-
-  </div>
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render 'projects/index' %>
+        </section>
+      </aside>
+    </div>
 <% else %>
-
 	<h1>SIMPLE TODO LIST</h1>
 	<h2>This is the home page</h2>
 	<div class="text-center">
-	<%= link_to "Sign up now!", signup_path , class: "btn btn-large btn-primary " %>
+	  <%= link_to "Sign up now!", signup_path , class: "btn btn-large btn-primary " %>
 	</div>
 <% end %>

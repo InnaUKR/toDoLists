@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'projekt/sortable_project_tasks', 'data-turbolinks-track' => true  %>
 <div>
   <div id="panel-group_<%= project.id %>">
       <div class="panel panel-primary ">
@@ -43,13 +44,3 @@
 </tr>
 
 
-<script>
-    var ready;
-    ready = function(){
-        // call sortable on our div with the sortable class
-        $('.sortable').sortable();
-    }
-
-    $(document).ready(ready);
-    $(document).on('page:load', ready);
-</script>

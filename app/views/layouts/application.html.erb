@@ -1,78 +1,59 @@
 <!DOCTYPE html>
 <html>
-	<head>
-  		<title>ToDoLists | <%= yield(:title) %></title>
-  		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  		<%= csrf_meta_tags %>
-  		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-  		<meta name="viewport" content="
+<head>
+  <title>ToDoLists | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="
 							    width=device-width,
 							    initial-scale=1,
 							    minimum-scale=1,
 							    maximum-scale=1,
 							    user-scalable=0" />
 
+  <script>
+      $(document).ready(function() {
+          /* Activating Best In Place */
+          jQuery(".best_in_place").best_in_place();
+      });
+  </script>
 
+  <script type="text/javascript">
+      $(document).mouseup(function (e) {
+          var container = $("#project-form");
+          if (container.has(e.target).length === 0){
+              container.hide();
+          }
+      });
+  </script>
 
-    
-<script>
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
-});
-</script>
-<script type="text/javascript">
-	$(document).mouseup(function (e) {
-    var container = $("#project-form");
-    if (container.has(e.target).length === 0){
-        container.hide();
-    }
-
-});
-</script>
-
-
-
-
-
-		<% javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" %>
-
-<% javascript_include_tag "http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+  <% javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" %>
+  <% javascript_include_tag "http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
       integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
       crossorigin="anonymous"%>
-
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
 
+<body>
 
-	</head>
-
-	<body>
-
-		<%= render 'layouts/header' %>
-		<div class="wrapper">	
-			<div class="content">
-				<div class="myContent">
-
-
-
-
-
-					<% flash.each do |key, value| %>
-		        		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
-		      		<% end %>
-
-					<%= yield %>
-				</div>
-			</div>
-
-			<div class="footer text-center">	
-				<a href="https://rubygarage.org/">©Ruby Garage</a>
-			</div>			
-		</div>
-	</body>
+<%= render 'layouts/header' %>
+<div class="wrapper">
+  <div class="content">
+    <div class="myContent">
+      <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+  <div class="footer text-center">
+    <a href="https://rubygarage.org/">©Ruby Garage</a>
+  </div>
+</div>
+</body>
 </html>

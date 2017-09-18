@@ -93,7 +93,7 @@ class TasksController < ApplicationController
   end
 
   def sort
-    params[:order].each_value do |_key, value|
+    params[:order].each do |_key, value|
       Task.find(value[:id]).update_attribute(:position, value[:position])
     end
     render nothing: true
@@ -103,6 +103,12 @@ class TasksController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def task_deadline(deadline)
+    deadline = if deadline != ''
+                 DateTime.strptime(deadline, '%m/%d/%Y  %H:%M %p')
+               end
   end
 
   def task_params

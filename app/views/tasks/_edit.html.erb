@@ -1,37 +1,19 @@
+<%= javascript_include_tag 'tasks/edit', 'data-turbolinks-track' => true  %>
+
 <%= form_tag task_path(id: @task, project_id: @project), method: "put", remote: true%>
+<%= text_field_tag :title, @task.title %>
+<td><div class="star-priority" data-score= <%= @task.priority %>></div></td>
+<td><div id="star-priority" data-score= <%= @task.priority %>></div></td>
+<% require 'date'%>
+<div class='input-group date' id='datetimepicker1'>
+  <% if !@task.deadline.nil? %>
+      <%= text_field_tag :deadline, @task.deadline.strftime("%d-%m-%Y  %H:%M %p"), class: 'form-control'%>
+  <% else %>
+      <%= text_field_tag :deadline, @task.deadline, class: 'form-control'%>
+  <% end %>
+  <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+</div>
+<%= submit_tag "Save", class: "btn btn-primary" %>
 
-    <%= text_field_tag :title, @task.title %>
-    <td><div class="star-priority" data-score= <%= @task.priority %>></div></td>
-    <td><div id="star-priority" data-score= <%= @task.priority %>></div></td>
-    <% require 'date'%>
-    <div class='input-group date' id='datetimepicker1'>
-
-      <% if !@task.deadline.nil? %>
-          <%= text_field_tag :deadline, @task.deadline.strftime("%d-%m-%Y  %H:%M %p"), class: 'form-control'%>
-      <% else %>
-          <%= text_field_tag :deadline, @task.deadline, class: 'form-control'%>
-      <% end %>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar"></span>
-      </span>
-    </div>
-    <%= submit_tag "Save", class: "btn btn-primary" %>
-
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datetimepicker(
-        );
-    });
-
-
-
-    $('#star-priority').raty({
-        path: '/assets',
-        scoreName: 'priority',
-        score: function() {
-            return $(this).attr('data-score');
-        }
-    });
-</script>
