@@ -1,41 +1,32 @@
 <div class="navbar navbar-default">
-	<div class="container">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
-	      	<span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand " href="#">TODO LIST</a>
-		</div>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand " href="#">TODO LIST</a>
+  </div>
 
-
-	    <div class="collapse navbar-collapse" id="b-menu-1">
-	      <ul class="nav navbar-nav navbar-right">
-
-          <% if signed_in? %>
+  <div class="collapse navbar-collapse" id="b-menu-1">
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
           <li>
-          <div>
-            <span class="glyphicon glyphicon-user"></span> 
-            <!--<a href="/signout", method: "delete">SSSSS</a>-->
-            <%= link_to "Sign out", signout_path, method: "delete" %>
-          </div>
-            
+            <%= link_to  signout_path, method: "delete" do%>
+                <span class="glyphicon glyphicon-user"></span>Sign out
+            <%end%>
           </li>
-          <% else %>
-	        <li>
+      <% else %>
+          <li>
             <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
           </li>
-
-	        <li>
+          <li>
             <a href='/signin'>
               <span class="glyphicon glyphicon-log-in">Sign in</span>
             </a>
           </li>
-        <% end %>
-
-	      </ul>
-	    </div>
-    </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
