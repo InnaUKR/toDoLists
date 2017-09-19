@@ -3,7 +3,8 @@
   <head>
     <title>ToDoLists | <%= yield(:title) %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
+
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
@@ -39,6 +40,7 @@
     <!--fonts -->
     <link href="https://fonts.googleapis.com/css?family=Yantramanav" rel="stylesheet">
   </head>
+
 
   <body>
     <%= render 'layouts/header' %>

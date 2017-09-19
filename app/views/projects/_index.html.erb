@@ -14,7 +14,8 @@
 </div>
 
   <div class="text-center">
-    <%= link_to new_project_path, remote: true do %>
+    <%= link_to new_project_path,
+                data: {no_turbolink: true, remote: true} do %>
       <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add TODO List</button>
     <% end %>
   </div>

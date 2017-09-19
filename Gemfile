@@ -21,15 +21,15 @@ gem 'will_paginate', '3.0.5'
 gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'rspec'
-gem 'spring', group: :development
+gem 'spring'
 group :test do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'factory_girl_rails'
 end
-group :development, :test do
-  gem 'rspec-rails'
-end
+
+gem 'rspec-rails'
+
 
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'momentjs-rails', '>= 2.9.0'

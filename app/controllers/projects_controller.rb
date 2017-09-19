@@ -14,24 +14,19 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js { }
+    end
   end
 
   def create
     @project = current_user.projects.build(project_params)
+    @project.save
     respond_to do |format|
-      if @project.save
         format.html { redirect_to root_url }
         format.js
-        format.json do
-          render action: 'show', status: :created, location: @project
-        end
-      else
-        format.html { render action: 'new' }
-        format.json do
-          render json: @project.errors, status: :unprocessable_entity
-        end
       end
-    end
   end
 
   def update

@@ -20,11 +20,6 @@
 //= require moment
 //= require bootstrap-datetimepicker
 
-//= require bootstrap
-//= require jquery
-//= require jquery_ujs
-//= require html.sortable.min
-
 //= require turbolinks
 //= require_tree .
 
