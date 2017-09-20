@@ -4,11 +4,6 @@ el.on('mouseenter', function() { el.one('mouseout', function () {
 }) });
 
 $(function () {
-    $('#datetimepicker1').datetimepicker(
+    $('.datetimepicker1').datetimepicker(
     );
-});
-
-$('#star-priority').raty({
-    path: '/assets',
-    scoreName: 'task[priority]'
 });

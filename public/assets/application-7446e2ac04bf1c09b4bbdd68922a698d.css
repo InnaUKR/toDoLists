@@ -9182,46 +9182,97 @@ body, html {
 
 /* line 24, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .myContent {
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
 }
 
 @media (max-width: 799px) and (min-width: 300px) {
-  /* line 30, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  /* line 31, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
   .myContent {
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* line 31, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  /* line 35, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
   .sign {
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 40, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  #projects {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 45, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  .create_new_project {
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 990px) and (min-width: 800px) {
-  /* line 39, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  /* line 53, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
   .myContent {
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* line 40, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  /* line 57, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
   .sign {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
-}
-@media (min-width: 991px) {
-  /* line 48, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-  .sign {
-    width: 40%;
+
+  /* line 62, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  #projects {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 67, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  .create_new_project {
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
   }
 }
-/* line 56, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+@media (min-width: 991px) {
+  /* line 75, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  .myContent {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 79, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  .sign {
+    width: 40%;
+  }
+
+  /* line 82, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  #projects {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 87, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+  .create_new_project {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* line 95, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 body {
   background: #b3b3b3;
   background: -moz-linear-gradient(top, #b3b3b3 0%, #bfbfbf 15%, #d9d9d9 41%, #fedc77 48%, #fedc77 51%, #f1ce6f 60%, #c28800 67%, #edbc35 75%, #f3a435 87%, #f3a435 100%);
@@ -9237,109 +9288,79 @@ body {
   background-size: cover;
 }
 
-/* line 75, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-p {
-  width: 90%;
-  max-width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: "Times New Roman";
-}
-
-/* line 83, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-h1 {
-  font-size: 3em;
-  text-align: center;
-}
-
-/* line 89, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -0.0625em;
-  text-align: center;
-  color: #999999 !important;
-}
-
-/*ul {font-size:1.5em; }
-*/
-/*
-a{
-      margin: auto;
-  font-family:"Times New Roman";
-  font-size:3em;
-}
-*/
-/* line 116, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 112, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .footer {
   font-size: 1.2em;
   letter-spacing: -0.0625em;
   font-weight: bold;
 }
 
-/* line 122, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 118, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .footer a:hover {
   text-decoration: none;
 }
 
 /* forms */
-/* line 131, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 127, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 #error_explanation {
   color: #f00;
 }
-/* line 133, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 129, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 #error_explanation ul {
   list-style: none;
   margin: 0 0 18px 0;
 }
 
-/* line 142, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-.projects {
-  list-style: none;
-}
-
-/* line 147, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 135, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .right {
   float: right;
 }
 
-/* line 151, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-div.panel-body {
-  background-color: #f0f0f0;
-  border-radius: 1em 1em 1em 1em;
-  margin: 1em;
+/* line 139, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+div.panel-primary {
+  border-color: transparent;
+  background: none;
 }
 
-/* line 157, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 144, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+div.panel-body {
+  border-color: transparent;
+  background-color: #f8f8f8;
+  border-radius: 0 0 1em 1em;
+}
+
+/* line 151, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 div.container {
   background-color: #f0f0f0;
   border-radius: 0 0 1em 1em;
   padding: 0;
   margin: 2em;
-  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 167, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 160, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .btn_margin {
   margin: 1em;
 }
 
-/* line 171, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 164, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 div.new_form {
   margin: 1em;
 }
 
-/* line 174, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 167, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 #simpleTodoLists, .sign-text {
   font-family: 'Yantramanav', sans-serif;
   font-style: normal;
   font-size: 3em;
   font-weight: bold;
   line-height: 0.7em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* line 181, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 176, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 #fromRG {
   font-family: 'Yantramanav', sans-serif;
   font-style: normal;
@@ -9351,7 +9372,7 @@ div.new_form {
   margin-bottom: 2.63em;
 }
 
-/* line 192, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 187, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .label-text {
   font-family: 'Yantramanav', sans-serif;
   color: #2E2F30;
@@ -9359,34 +9380,32 @@ div.new_form {
   line-height: 0.3em;
 }
 
-/* line 200, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-.sortable-placeholder {
-  border: 1px dashed #CCC;
-  background-color: #f9f9f9;
+/* line 195, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+div.sortable-placeholder {
   height: 80px;
   margin-bottom: 10px;
 }
 
-/* line 207, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
-.sortable {
-  display: list-item;
-}
-
-/* line 211, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 205, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .footer {
   font-size: 1.2em;
   letter-spacing: -0.0625em;
   font-weight: bold;
 }
-/* line 215, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 209, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .footer a {
   color: #245580;
 }
-/* line 218, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+/* line 212, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
 .footer a:hover {
   background-color: transparent;
   text-decoration: none;
   color: #245580;
+}
+
+/* line 219, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/custom.css.scss */
+.betaTextField {
+  color: #000000;
 }
 /* line 1, /home/inna/Progr/RubyGarage/ToDoLists/toDoLists/app/assets/stylesheets/scaffolds.css.scss */
 body {

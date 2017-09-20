@@ -21997,12 +21997,21 @@ $('#star-priority').raty({
         return $(this).attr('data-score');
     }
 });
-$('.star-priority').raty({
-    path: '/assets',
-    readOnly: true,
-    score: function() {
-        return $(this).attr('data-score');
-    }
+$(function () {
+    $('.star-priority-new').raty({
+        path: '/assets',
+        scoreName: 'task[priority]'
+    });
+});
+$(function () {
+    $('.star-priority').raty({
+        path: '/assets',
+        readOnly: true,
+        scoreName: 'task[priority]',
+        score: function () {
+            return $(this).attr('data-score');
+        }
+    });
 });
 var el = $('.btn-primary');
 el.on('mouseenter', function() { el.one('mouseout', function () {
@@ -22010,13 +22019,8 @@ el.on('mouseenter', function() { el.one('mouseout', function () {
 }) });
 
 $(function () {
-    $('#datetimepicker1').datetimepicker(
+    $('.datetimepicker1').datetimepicker(
     );
-});
-
-$('#star-priority').raty({
-    path: '/assets',
-    scoreName: 'task[priority]'
 });
 var ready;
 ready = function(){

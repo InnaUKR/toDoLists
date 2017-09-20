@@ -1,7 +1,8 @@
 <% provide(:title, 'Sign in') %>
 
-<h1 class="sign-text">Sign in</h1>
+
 <div class="sign">
+  <h1 class="sign-text">Sign in</h1>
   <%= form_for(:session, url: sessions_path) do |f| %>
       <%= f.label :email, class: 'label-text'%>
       <%= f.text_field :email, class: 'form-control' %><br>

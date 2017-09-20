@@ -1,6 +1,13 @@
-<div class="new_form">
+<div class="panel panel-primary ">
+  <div class="panel-heading ">
+
   <%=form_for @project, remote: true do |f| %>
-      <%= f.text_field :title %>
-      <%= f.button :submit %>
+
+      <%= f.text_field :title, :class=>'betaTextField'%>
+
+      <%= f.button 'Create project', :class=>'btn btn-success'%>
+
   <% end %>
+</div>
+  </div>
 </div>

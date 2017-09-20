@@ -1,46 +1,38 @@
 <%= javascript_include_tag 'project/sortable_project_tasks', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'tasks/task_form' %>
+
+<%= javascript_include_tag 'tasks/star_priority_form'%>
 <div>
   <div id="panel-group_<%= project.id %>">
       <div class="panel panel-primary ">
             <div class="panel-heading ">
-                <tr class="projects" id="row_<%= project.id %>">
-
-                    <span class="glyphicon glyphicon-calendar vcenter"></span><%= best_in_place project, :title, :classes => 'name-edit'%></td>
-                       <div align="right">
-                             <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
+                  <span class="glyphicon glyphicon-calendar vcenter"></span><%= best_in_place project, :title, :classes => 'name-edit'%></td>
+                  <div align="right">
+                    <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, project, remote: true,
                                   class: 'btn btn-primary btn-xs',
                                   method: :delete,
                                   data: {confirm: 'Are you sure?'} %>
-                       </div>
-                </tr>
+                  </div>
             </div>
-      </div>
+        <div class="panel-body">
+<div id="task-form-<%= @project.id%>" class="row">
+          <%= render partial: 'tasks/form', :locals => {:project => project} %>
+</div>
+          <table class="tasks">
+          <tr>  <div class="sortable" id="tasks_<%= project.id %>">
+              <%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
+            </div>
+          </tr>
+          </table>
 
-  <div>
-      <div class="panel-body">
-          <div class="sortable" id="tasks_<%= project.id %>"><%= render partial: 'tasks/task', collection: project.tasks, :locals => {:project => project} %>
-          </div>
-        <div class="row">
-          <div class="task-form" id="task-form-<%= project.id %>" tyle="display:none;"></div>
+
+
         </div>
       </div>
-  </div>
-
-
-
-
-
-
-
-
-  <div class="text-center btn_margin"> <%= link_to new_project_task_path(project_id: project.id), remote: true do %>
-        <button class="btn btn-success ">Add Task</button>
-    <% end %></div>
 
 </td>
 </div>
 
 </div>
 </tr>
-
 

@@ -10,6 +10,8 @@ Rails.application.config.assets.precompile += %w( tasks/task_form.js )
 Rails.application.config.assets.precompile += %w( tasks/edit.js )
 
 Rails.application.config.assets.precompile += %w( tasks/star_priority_show.js )
+Rails.application.config.assets.precompile += %w( tasks/star_priority_form.js )
+
 Rails.application.config.assets.precompile += %w( tasks/drag&drop.js )
 Rails.application.config.assets.precompile += %w( tasks/tasks.js )
 Rails.application.config.assets.precompile += %w( project/sortable_project_tasks.js )

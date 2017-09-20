@@ -1,39 +1,40 @@
 <%= javascript_include_tag 'tasks/star_priority_show', 'data-turbolinks-track' => true  %>
 <%= javascript_include_tag 'tasks/drag&drop', 'data-turbolinks-track' => true  %>
 <%= javascript_include_tag 'tasks/tasks', 'data-turbolinks-track' => true  %>
-<div class="panel panel-default" id="row_<%=task.id %>" data-id="<%= task.id %>">
+
+<div  id="row_<%=task.id %>" data-id="<%= task.id %>">
   <div class="row">
     <div class="complete">
       <% if task.completeda? %>
 
-          <div class="col-xs-1">
+          <div class="col-xs-1 col-sm-1">
             <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
                 <input id="#check_<%=task.id%>" type="checkbox" checked/>
             <% end %>
           </div>
 
-          <div class="<%= task.id %> col-xs-4">
+          <div class="<%= task.id %> col-xs-4 col-sm-4">
             <%= task.title%>
           </div>
 
       <% else %>
-          <div class="col-xs-1">
-            <%=link_to complete_task_path(project_id: project, id: task), remote: true, method: :patch do%>
+          <div class="col-xs-1 col-sm-1">
+            <%=link_to complete_task_path(:project_id => project , :id => task), remote: true, method: :patch do%>
                 <input id="#check_<%=task.id%>" type="checkbox"/>
             <% end %>
           </div>
 
-          <div class="<%= task.id %> col-xs-4">
+          <div class="<%= task.id %> col-xs-4 col-sm-4">
             <%= task.title%>
           </div>
 
       <% end %>
 
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-sm-2">
         <div class="star-priority" data-score= <%= task.priority %>></div>
       </div>
 
-      <div class="col-xs-3">
+      <div class="col-xs-3 col-sm-3">
         <% require 'date'%>
         <% if !task.deadline.nil? %>
             <%= task.deadline.strftime("%d-%m-%Y  %H:%M %p") %>
@@ -42,15 +43,15 @@
         <% end %>
       </div>
 
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-sm-2">
         <span class="trash">
-          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(project_id: project, id: task), remote: true,
+          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, task_path(:project_id => project , :id => task), remote: true,
                           method: :delete,
                           data: {confirm: 'Are you sure?'} %>
         </span>
 
         <span class="update">
-          <%=link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_task_path(project_id: project, id: task), remote: true%>
+          <%=link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_task_path(:project_id => project , :id => task), remote: true%>
         </span>
 
       </div>
